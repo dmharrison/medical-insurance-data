@@ -60,6 +60,7 @@ class PatientsInfo:
         # return total age divided by the length of the patient list
         return (f"Average Patient Age: {average_age} years")
     
+        # method that calculates the number of males and females in insurance.csv
     def analyze_sexes(self):
         # initialize total of both sexes at zero
         males = 0
@@ -75,3 +76,15 @@ class PatientsInfo:
         print("Count for female: ", females)
         print("Count for male: ", males)
 
+        # method to find each unique region patients are from
+    def unique_regions(self):
+        # initialize empty list
+        unique_regions = []
+        # iterate through each region in regions list
+        for region in self.patients_regions:
+            # if the region is not already in the unique regions list
+            # then add it to the unique regions list
+            if region not in unique_regions: 
+                unique_regions.append(region)
+        # return unique regions list
+        return unique_regions
