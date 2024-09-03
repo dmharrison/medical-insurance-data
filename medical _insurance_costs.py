@@ -45,7 +45,7 @@ class PatientsInfo:
         self.patients_regions = patients_regions
         self.patients_charges = patients_charges
 
-      # method that calculates the average ages of the patients in insurance.csv
+    # method that calculates the average ages of the patients in insurance.csv
     def analyze_ages(self):
         # initialize total age at zero
         total_age = 0
@@ -60,7 +60,7 @@ class PatientsInfo:
         # return total age divided by the length of the patient list
         return (f"Average Patient Age: {average_age} years")
     
-        # method that calculates the number of males and females in insurance.csv
+    # method that calculates the number of males and females in insurance.csv
     def analyze_sexes(self):
         # initialize total of both sexes at zero
         males = 0
@@ -76,7 +76,7 @@ class PatientsInfo:
         print("Count for female: ", females)
         print("Count for male: ", males)
 
-        # method to find each unique region patients are from
+    # method to find each unique region patients are from
     def unique_regions(self):
         # initialize empty list
         unique_regions = []
@@ -89,7 +89,7 @@ class PatientsInfo:
         # return unique regions list
         return unique_regions
 
-        # method to find average yearly medical charges for patients in insurance.csv
+    # method to find average yearly medical charges for patients in insurance.csv
     def average_charges(self):
         # initialize total_charges variable
         total_charges = 0
@@ -97,6 +97,20 @@ class PatientsInfo:
         # add each charge to total_charge
         for charge in self.patients_charges:
             total_charges += float(charge)
+
+        # calculate the average charges
+        average_charge = round(total_charges/len(self.patients_charges), 2)
         # return the average charges rounded to the hundredths place
-        return ("Average Yearly Medical Insurance Charges: " +  
-                str(round(total_charges/len(self.patients_charges), 2)) + " dollars.")
+        return (f"Average Yearly Medical Insurance Charges: {average_charge} dollars.")
+    
+    # method to create dictionary with all patients information
+    def create_dictionary(self):
+        self.patients_dictionary = {}
+        self.patients_dictionary["age"] = [int(age) for age in self.patients_ages]
+        self.patients_dictionary["sex"] = self.patients_sexes
+        self.patients_dictionary["bmi"] = self.patients_bmis
+        self.patients_dictionary["children"] = self.patients_num_children
+        self.patients_dictionary["smoker"] = self.patients_smoker_statuses
+        self.patients_dictionary["regions"] = self.patients_regions
+        self.patients_dictionary["charges"] = self.patients_charges
+        return self.patients_dictionary
