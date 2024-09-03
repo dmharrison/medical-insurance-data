@@ -88,3 +88,15 @@ class PatientsInfo:
                 unique_regions.append(region)
         # return unique regions list
         return unique_regions
+
+        # method to find average yearly medical charges for patients in insurance.csv
+    def average_charges(self):
+        # initialize total_charges variable
+        total_charges = 0
+        # iterate through charges in patients charges list
+        # add each charge to total_charge
+        for charge in self.patients_charges:
+            total_charges += float(charge)
+        # return the average charges rounded to the hundredths place
+        return ("Average Yearly Medical Insurance Charges: " +  
+                str(round(total_charges/len(self.patients_charges), 2)) + " dollars.")
