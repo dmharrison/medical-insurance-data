@@ -60,5 +60,18 @@ class PatientsInfo:
         # return total age divided by the length of the patient list
         return (f"Average Patient Age: {average_age} years")
     
-    
+    def analyze_sexes(self):
+        # initialize total of both sexes at zero
+        males = 0
+        females = 0
+        # iterate through all the sexes in the sexes list
+        for sex in self.patients_sexes:
+            # sum of total for each
+            if sex == 'males':
+                males += 1
+            elif sex == ' females':
+                females += 1
+          # print out the number of each
+        print("Count for female: ", females)
+        print("Count for male: ", males)
 
