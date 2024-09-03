@@ -114,3 +114,14 @@ class PatientsInfo:
         self.patients_dictionary["regions"] = self.patients_regions
         self.patients_dictionary["charges"] = self.patients_charges
         return self.patients_dictionary
+    
+# Create an instance of the class named 'patient_info'. 
+# Use this instance to call each method and view the analysis results.
+
+patients_info = PatientsInfo(ages, sexes, bmis, num_children, smoker_statuses, regions, insurance_charges)
+
+print(patients_info.analyze_ages())
+print(patients_info.analyze_sexes())
+print(patients_info.unique_regions())
+print(patients_info.average_charges())
+# print(patients_info.create_dictionary())
